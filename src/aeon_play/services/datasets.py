@@ -105,6 +105,9 @@ class DatasetService:
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.cache = diskcache.Cache(str(self.cache_dir / "datasets"))
+        # Directory for aeon dataset downloads
+        self.aeon_data_dir = self.cache_dir / "aeon_data"
+        self.aeon_data_dir.mkdir(parents=True, exist_ok=True)
 
     def get_available_datasets(self, task_type: str = "all") -> Dict[str, List[str]]:
         """Get list of available built-in datasets by task type."""
@@ -152,20 +155,22 @@ class DatasetService:
 
         try:
             if task_type == "classification":
+                extract_path = str(self.aeon_data_dir)
                 if split:
-                    X, y = load_classification(name, split=split)
+                    X, y = load_classification(name, split=split, extract_path=extract_path)
                 else:
-                    X_train, y_train = load_classification(name, split="train")
-                    X_test, y_test = load_classification(name, split="test")
+                    X_train, y_train = load_classification(name, split="train", extract_path=extract_path)
+                    X_test, y_test = load_classification(name, split="test", extract_path=extract_path)
                     X = np.concatenate([X_train, X_test], axis=0)
                     y = np.concatenate([y_train, y_test], axis=0)
 
             elif task_type == "regression":
+                extract_path = str(self.aeon_data_dir)
                 if split:
-                    X, y = load_regression(name, split=split)
+                    X, y = load_regression(name, split=split, extract_path=extract_path)
                 else:
-                    X_train, y_train = load_regression(name, split="train")
-                    X_test, y_test = load_regression(name, split="test")
+                    X_train, y_train = load_regression(name, split="train", extract_path=extract_path)
+                    X_test, y_test = load_regression(name, split="test", extract_path=extract_path)
                     X = np.concatenate([X_train, X_test], axis=0)
                     y = np.concatenate([y_train, y_test], axis=0)
 
