@@ -21,8 +21,9 @@ classifiers = [
 ]
 
 dependencies = [
-    "dash>=2.14.0",
+    "dash[diskcache]>=2.14.0",
     "dash-bootstrap-components>=1.5.0",
+    "psutil>=5.9.0",
     "dash-extensions>=1.0.0",
     "plotly>=5.18.0",
     "pandas>=2.0.0",
