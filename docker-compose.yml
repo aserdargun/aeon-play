@@ -1,0 +1,33 @@
+# Docker Compose configuration for aeon-play
+# Usage:
+#   Development: docker-compose up
+#   Production: docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+
+version: '3.8'
+
+services:
+  aeon-play:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aeon-play
+    ports:
+      - "8050:8050"
+    environment:
+      - PORT=8050
+      - HOST=0.0.0.0
+      - AEON_PLAY_DEBUG=false
+      - AEON_PLAY_CACHE_DIR=/app/.cache
+    volumes:
+      - cache-data:/app/.cache
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8050/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  cache-data:
+    driver: local
