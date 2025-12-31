@@ -1,0 +1,15 @@
+# Nixpacks configuration for Railway (fallback if Dockerfile not used)
+# https://nixpacks.com/docs/configuration/file
+
+[phases.setup]
+nixPkgs = ["python311", "gcc"]
+
+[phases.install]
+cmds = ["pip install uv", "uv pip install --system ."]
+
+[start]
+cmd = "gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 4 --timeout 120 aeon_play.app:server"
+
+[variables]
+PYTHONUNBUFFERED = "1"
+AEON_PLAY_CACHE_DIR = "/app/.cache"

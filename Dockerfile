@@ -64,5 +64,5 @@ EXPOSE 8050
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/ || exit 1
 
-# Run with gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8050", "--workers", "4", "--threads", "2", "--timeout", "120", "aeon_play.app:server"]
+# Run with gunicorn (Railway injects PORT env var)
+CMD gunicorn --bind 0.0.0.0:${PORT:-8050} --workers 2 --threads 4 --timeout 120 aeon_play.app:server

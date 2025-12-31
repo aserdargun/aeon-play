@@ -1,0 +1,55 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+env
+.eggs
+*.egg-info
+.mypy_cache
+.pytest_cache
+.ruff_cache
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Testing
+tests/
+.coverage
+htmlcov/
+.tox
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Docker
+Dockerfile*
+docker-compose*
+.docker
+
+# Railway/Deploy
+railway.toml
+railway.json
+nixpacks.toml
+Procfile
+
+# Cache
+.cache
+*.cache
+
+# Environment
+.env
+.env.*
+!.env.example
