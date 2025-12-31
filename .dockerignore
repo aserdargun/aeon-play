@@ -31,8 +31,8 @@ htmlcov/
 
 # Documentation
 docs/
-*.md
-!README.md
+CONTRIBUTING.md
+CHANGELOG.md
 
 # Docker
 Dockerfile*
