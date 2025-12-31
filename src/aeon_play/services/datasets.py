@@ -21,17 +21,32 @@ import pandas as pd
 import diskcache
 
 # aeon imports
+AEON_AVAILABLE = False
+load_classification = None
+load_regression = None
+load_from_tsfile = None
+load_from_tsf_file = None
+tsc_univariate = []
+tsc_multivariate = []
+tser_all = []
+
 try:
     from aeon.datasets import load_classification, load_regression
-    from aeon.datasets import load_from_tsfile, load_from_tsf_file
     from aeon.datasets.tsc_datasets import univariate as tsc_univariate, multivariate as tsc_multivariate
-    from aeon.datasets.tser_datasets import tser_all
     AEON_AVAILABLE = True
 except ImportError:
-    AEON_AVAILABLE = False
-    tsc_univariate = []
-    tsc_multivariate = []
-    tser_all = []
+    pass
+
+# Optional imports that may not be available in all aeon versions
+try:
+    from aeon.datasets import load_from_tsfile, load_from_tsf_file
+except ImportError:
+    pass
+
+try:
+    from aeon.datasets.tser_datasets import tser_all
+except ImportError:
+    pass
 
 # Configuration
 MAX_CASES = int(os.getenv("AEON_PLAY_MAX_CASES", "10000"))

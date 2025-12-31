@@ -5,6 +5,7 @@ Provides wrappers for training, prediction, and evaluation of aeon estimators.
 """
 
 import time
+import inspect
 from typing import Any, Dict, List, Optional, Tuple, Union
 from dataclasses import dataclass, asdict
 import traceback
@@ -106,8 +107,12 @@ class TaskRunner:
 
             # Clean params
             clean_params = {k: v for k, v in params.items() if v is not None}
+
+            # Only add random_state if the estimator accepts it
             if "random_state" not in clean_params:
-                clean_params["random_state"] = random_state
+                sig = inspect.signature(est_class.__init__)
+                if "random_state" in sig.parameters:
+                    clean_params["random_state"] = random_state
 
             # Split data
             X_train, X_test, y_train, y_test = train_test_split(
