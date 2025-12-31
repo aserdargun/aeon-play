@@ -8,18 +8,18 @@ import dash_bootstrap_components as dbc
 import numpy as np
 import plotly.graph_objects as go
 
-from ...services.aeon_discovery import get_aeon_discovery
-from ...services.datasets import get_dataset_service
-from ...services.runners import TaskRunner
-from ...services.exporters import CodeExporter
-from ...components.learning_section import create_learning_section
-from ...components.level_gate import get_level_features
-from ...components.metrics_display import (
+from aeon_play.services.aeon_discovery import get_aeon_discovery
+from aeon_play.services.datasets import get_dataset_service
+from aeon_play.services.runners import TaskRunner
+from aeon_play.services.exporters import CodeExporter
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.level_gate import get_level_features
+from aeon_play.components.metrics_display import (
     create_metrics_display,
     create_confusion_matrix,
     create_run_logs,
 )
-from ...components.code_export import create_code_export_modal
+from aeon_play.components.code_export import create_code_export_modal
 
 dash.register_page(
     __name__,

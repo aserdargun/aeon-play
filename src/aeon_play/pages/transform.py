@@ -9,11 +9,11 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from ..services.aeon_discovery import get_aeon_discovery
-from ..services.runners import TaskRunner
-from ..components.learning_section import create_learning_section
-from ..components.level_gate import get_visible_items, get_level_features
-from ..components.code_export import create_code_export_modal, create_export_button
+from aeon_play.services.aeon_discovery import get_aeon_discovery
+from aeon_play.services.runners import TaskRunner
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.level_gate import get_visible_items, get_level_features
+from aeon_play.components.code_export import create_code_export_modal, create_export_button
 
 dash.register_page(__name__, path="/transform", name="Transformations", title="aeon-play | Transformations")
 

@@ -10,8 +10,7 @@ from dataclasses import dataclass
 import inspect
 
 try:
-    from aeon.registry import all_estimators
-    from aeon.base import BaseEstimator
+    from aeon.utils.discovery import all_estimators
     AEON_AVAILABLE = True
 except ImportError:
     AEON_AVAILABLE = False

@@ -100,8 +100,8 @@ class TestTaskRunner:
 
         result = runner.run_classification(
             X=X, y=y,
-            estimator_name="DummyClassifier",
-            params={},
+            estimator_name="KNeighborsTimeSeriesClassifier",
+            params={"n_neighbors": 1},
         )
 
         assert result.logs is not None

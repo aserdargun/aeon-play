@@ -9,11 +9,11 @@ import numpy as np
 import plotly.graph_objects as go
 import time
 
-from ..services.aeon_discovery import get_aeon_discovery
-from ..services.datasets import get_dataset_service
-from ..services.runners import TaskRunner
-from ..components.learning_section import create_learning_section
-from ..components.level_gate import get_level_features
+from aeon_play.services.aeon_discovery import get_aeon_discovery
+from aeon_play.services.datasets import get_dataset_service
+from aeon_play.services.runners import TaskRunner
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.level_gate import get_level_features
 
 dash.register_page(__name__, path="/benchmark", name="Benchmark", title="aeon-play | Benchmark")
 

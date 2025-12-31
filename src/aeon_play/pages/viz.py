@@ -9,8 +9,8 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from ..components.learning_section import create_learning_section
-from ..components.level_gate import level_gate, get_level_features
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.level_gate import level_gate, get_level_features
 
 dash.register_page(__name__, path="/viz", name="Visual Lab", title="aeon-play | Visual Lab")
 

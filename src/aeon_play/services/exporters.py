@@ -288,7 +288,7 @@ class CodeExporter:
             "",
             "print(f'MAE: {mae:.4f}')",
             "print(f'RMSE: {rmse:.4f}')",
-        ])
+        ]
 
         return "\n".join(code_lines)
 
@@ -327,7 +327,7 @@ class CodeExporter:
             "# Find anomalies",
             "anomaly_indices = np.where(anomaly_scores > 0)[0]",
             "print(f'Found {len(anomaly_indices)} anomalous points')",
-        ])
+        ]
 
         return "\n".join(code_lines)
 
@@ -365,7 +365,7 @@ class CodeExporter:
             "",
             "print(f'Found {len(change_points)} change points')",
             "print(f'Change point locations: {change_points}')",
-        ])
+        ]
 
         return "\n".join(code_lines)
 
@@ -402,7 +402,7 @@ class CodeExporter:
             "",
             "print(f'Original shape: {X.shape}')",
             "print(f'Transformed shape: {X_transformed.shape}')",
-        ])
+        ]
 
         return "\n".join(code_lines)
 
@@ -481,7 +481,7 @@ class CodeExporter:
             "# Use the pipeline",
             "# pipeline.fit(X_train, y_train)",
             "# predictions = pipeline.predict(X_test)",
-        ])
+        ]
 
         return "\n".join(code_lines)
 

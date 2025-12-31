@@ -9,9 +9,9 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from ...services.aeon_discovery import get_aeon_discovery
-from ...services.runners import TaskRunner
-from ...components.learning_section import create_learning_section
+from aeon_play.services.aeon_discovery import get_aeon_discovery
+from aeon_play.services.runners import TaskRunner
+from aeon_play.components.learning_section import create_learning_section
 
 dash.register_page(
     __name__,

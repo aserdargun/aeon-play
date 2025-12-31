@@ -9,9 +9,9 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-from ..services.aeon_discovery import get_distance_functions
-from ..components.learning_section import create_learning_section
-from ..components.code_export import create_export_button
+from aeon_play.services.aeon_discovery import get_distance_functions
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.code_export import create_export_button
 
 dash.register_page(__name__, path="/distances", name="Distances Lab", title="aeon-play | Distances Lab")
 

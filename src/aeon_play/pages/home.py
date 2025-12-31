@@ -9,7 +9,7 @@ import dash
 from dash import html, dcc, callback, Input, Output, State
 import dash_bootstrap_components as dbc
 
-from ..components.level_gate import get_level_description
+from aeon_play.components.level_gate import get_level_description
 
 dash.register_page(__name__, path="/", name="Home", title="aeon-play | Home")
 

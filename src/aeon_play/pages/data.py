@@ -11,14 +11,14 @@ import io
 import json
 import uuid
 
-from ..services.datasets import get_dataset_service, DatasetInfo
-from ..components.data_preview import (
+from aeon_play.services.datasets import get_dataset_service, DatasetInfo
+from aeon_play.components.data_preview import (
     create_data_preview,
     create_data_warnings,
     create_series_selector,
 )
-from ..components.learning_section import create_learning_section
-from ..components.level_gate import level_gate, get_level_features
+from aeon_play.components.learning_section import create_learning_section
+from aeon_play.components.level_gate import level_gate, get_level_features
 
 dash.register_page(__name__, path="/data", name="Data Studio", title="aeon-play | Data Studio")
 
